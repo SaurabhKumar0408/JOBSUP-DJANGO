@@ -30,7 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'django-insecure-local-development-key
 DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
 ALLOWED_HOSTS = [
-    ".railway.app",   # for Railway
+    'web-production-99747.up.railway.app',   # for Railway
     "localhost",
     "127.0.0.1",
 ]
@@ -154,8 +154,13 @@ SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('Bearer',),
 }
 
-CORS_ALLOW_ALL_ORIGINS = True
 
-
+CSRF_TRUSTED_ORIGINS = [
+    "https://web-production-99747.up.railway.app",
+]
+CORS_ALLOWED_ORIGINS = [
+    "https://web-production-99747.up.railway.app",
+]
 CORS_ALLOW_CREDENTIALS = True
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
