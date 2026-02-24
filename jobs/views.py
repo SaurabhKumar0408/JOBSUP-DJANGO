@@ -155,7 +155,7 @@ def createJob(request):
         data = json.loads(request.body)
     except json.JSONDecodeError:
         return JsonResponse({'error':'Invalid Json'},  status=400)
-    
+    print("RECEIVED DATA:", data)
     title = data.get('title')
     company_id = data.get('company_id')
     description = data.get('description')
